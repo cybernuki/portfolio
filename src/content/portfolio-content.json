@@ -1,0 +1,406 @@
+{
+  "contact": {
+    "upwork": "https://www.upwork.com/freelancers/~010b0c14042b7427f7",
+    "github": "https://github.com/cybernuki",
+    "linkedin": "https://linkedin.com/in/jhonatan-arenas-developer",
+    "booking": "TODO(jhonatan): optional booking link (Cal.com or similar)"
+  },
+  "en": {
+    "name": "Jhonatan Arenas",
+    "headline": "I help teams connect AI to their systems and ship it.",
+    "role": "Freelance engineer: MCP, AI tooling, production",
+    "focus": "MCP servers, Claude Code setups, bots, prototype to production",
+    "place": "Colombia",
+    "languages": "Spanish (native), English (B2)",
+    "services": [
+      {
+        "id": "mcp-servers",
+        "title": "Custom MCP servers",
+        "tagline": "I connect Claude and your agents to your APIs and data.",
+        "proof": [
+          "context-engine-mcp"
+        ],
+        "details": "Typed tools, authentication, tests and deployment, so agents can reach your APIs, databases and internal tools safely. Proof: context-engine-mcp, my open-source MCP server for code context."
+      },
+      {
+        "id": "ai-coding-harness",
+        "title": "AI coding harness setup (local and cloud)",
+        "tagline": "I set up Claude Code for your team, local and cloud.",
+        "proof": [],
+        "details": "CLAUDE.md and AGENTS.md, skills, hooks, subagents, MCP wiring, a spec-driven workflow and persistent memory, committed to your repository. Cloud side: Claude Code on the web / cloud environments with setup scripts, network access policy, environment variables and secrets, GitHub repository integration, Claude Code in CI (GitHub Actions) and scheduled or background agents. Proof: my own daily setup, local and cloud."
+      },
+      {
+        "id": "bots-agents",
+        "title": "Bots and agents",
+        "tagline": "I build triage and support bots that classify and answer.",
+        "proof": [
+          "triage-bot"
+        ],
+        "details": "Slack, Discord and Microsoft Teams triage and support bots, classification with Jev (TypeSafe's System One model) and answer agents on AWS Bedrock. Proof: discord-triage-agent, an open-source Discord triage bot."
+      },
+      {
+        "id": "prototype-to-production",
+        "title": "Vibe-coded app to production",
+        "tagline": "I take your Lovable, Cursor or Claude app live.",
+        "proof": [
+          "fulepu",
+          "hostreach",
+          "subinvoxa",
+          "buitrago"
+        ],
+        "details": "Tests, CI/CD, Docker, AWS CDK infrastructure, secrets hygiene, observability and a security pass, then deployment to AWS or a VPS. Proof: HostReach, Subinvoxa and Buitrago in production, and VPS deployments with Docker Compose."
+      }
+    ],
+    "caseStudies": [
+      {
+        "id": "context-engine-mcp",
+        "title": "context-engine-mcp",
+        "role": "Built end to end",
+        "problem": "AI coding agents can't see large or multi-repo codebases.",
+        "did": "Built an MCP server that indexes code and searches it by meaning.",
+        "result": "Any MCP client gets relevant code context on demand.",
+        "stack": [
+          "TypeScript",
+          "MCP SDK",
+          "Qdrant",
+          "fastembed",
+          "tree-sitter",
+          "Docker",
+          "Vitest"
+        ],
+        "status": "open-source",
+        "link": "https://github.com/cybernuki/context-engine-mcp",
+        "details": "Open-source MCP server with these tools: index_repository, search_codebase, get_file_context, refresh_changed_files, list_repositories and compare_branches. It uses tree-sitter AST chunking, local fastembed embeddings, Qdrant, incremental hash-based indexing and branch-aware search. It has an HTTP mode with token auth, path validation, and a VPS deployment with a systemd timer. Works with MCP clients such as Claude, Cursor and VS Code."
+      },
+      {
+        "id": "triage-bot",
+        "title": "discord-triage-agent",
+        "role": "Built end to end",
+        "problem": "Support questions pile up and each needs triage.",
+        "did": "Classified messages with Jev and a threshold, added a Bedrock answer agent.",
+        "result": "Questions get sorted and answered without a person reading each one.",
+        "stack": [
+          "TypeScript",
+          "Jev",
+          "Amazon Bedrock",
+          "Docker Compose",
+          "CI"
+        ],
+        "status": "open-source",
+        "link": "https://github.com/cybernuki/discord-triage-agent",
+        "details": "Open-source showcase repo: Jev triage with a confidence threshold, a Bedrock answer agent behind a feature flag, Docker Compose and CI. A production version of the same idea adds RAG over a codebase and runs on a VPS."
+      },
+      {
+        "id": "fulepu",
+        "title": "Fulepu",
+        "role": "Built the AWS migration",
+        "problem": "A learning company's apps ran on scattered legacy services.",
+        "did": "Migrated their apps to AWS with Cognito single sign-on.",
+        "result": "Their apps now run on one AWS stack with one login.",
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "AWS Amplify",
+          "Amazon Cognito",
+          "DynamoDB",
+          "S3",
+          "CloudFront",
+          "AWS CDK",
+          "Lambda",
+          "Amazon SES",
+          "EventBridge"
+        ],
+        "status": "client",
+        "link": "https://fulepu.com/",
+        "details": "Fulepu is a learning and organizational development company. I moved their web apps off Firebase, Clerk, Convex and Appwrite onto AWS: Cognito for login, DynamoDB for data, S3 with CloudFront for media and Amplify for hosting, with the infrastructure defined in AWS CDK. Cognito also gives single sign-on between the apps and their WordPress portal. I added transactional email with SES and scheduled jobs with EventBridge."
+      },
+      {
+        "id": "buitrago",
+        "title": "Buitrago Sánchez Asociados",
+        "role": "Built the tool for the client",
+        "problem": "An accounting firm collected DIAN invoices and matched them by hand.",
+        "did": "Built a private tool for invoice import, bank reconciliation and Drive filing.",
+        "result": "The firm gets invoices imported, reconciled and filed in one tool.",
+        "stack": [
+          "Bun",
+          "TypeScript",
+          "Next.js",
+          "SQLite",
+          "Google APIs"
+        ],
+        "status": "client",
+        "link": "https://buitragosanchezasociados.com/",
+        "details": "The link is the client's public site. The tool itself is a private internal tool that imports DIAN invoices, reconciles them against bank statements and files them to Google Drive."
+      },
+      {
+        "id": "hostreach",
+        "title": "HostReach",
+        "role": "Backend engineer",
+        "problem": "A lead platform needed fresh listings from several Spanish portals.",
+        "did": "Built ingestion with Apify, deduplication and ClickHouse, and fixed production incidents.",
+        "result": "Listings arrive without duplicates; lost leads and mislabeled sales were fixed.",
+        "stack": [
+          "NestJS",
+          "TypeScript",
+          "Apify",
+          "ClickHouse",
+          "Jest"
+        ],
+        "status": "live",
+        "link": "https://www.hostreach.io/",
+        "details": "Backend ingestion pipeline across four Spanish real estate portals, wired through webhooks into ClickHouse. Fixed production incidents such as lost leads from WhatsApp delivery failures and sale listings shown as rentals."
+      },
+      {
+        "id": "subinvoxa",
+        "title": "Subinvoxa",
+        "role": "Co-founder & Tech Lead",
+        "problem": "Colombian small businesses need DIAN-compliant electronic invoicing.",
+        "did": "Took the app from idea to production, including infrastructure and operations.",
+        "result": "A live product issuing invoices for multiple companies.",
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "Convex",
+          "Clerk",
+          "AWS Amplify",
+          "Terraform"
+        ],
+        "status": "live",
+        "link": "https://subinvoxa.com/",
+        "details": "Issues invoices, credit and debit notes, support documents and payroll documents for multiple companies. Covers product, backend, infrastructure and operations."
+      }
+    ],
+    "process": [
+      {
+        "step": 1,
+        "title": "Discovery call",
+        "details": "A short call to understand your prototype, agent or team setup."
+      },
+      {
+        "step": 2,
+        "title": "Fixed scope",
+        "details": "I write down what is included and what you get at the end."
+      },
+      {
+        "step": 3,
+        "title": "Weekly updates",
+        "details": "Short written progress updates, in plain language."
+      },
+      {
+        "step": 4,
+        "title": "Handoff with docs",
+        "details": "Code, documentation and a walkthrough so your team owns it."
+      }
+    ],
+    "background": {
+      "title": "Background",
+      "text": "Backend engineer: NestJS, Python and AWS. International clients.",
+      "details": "My foundation is backend engineering in Node.js, NestJS and Python on AWS, for international clients. I take on projects through my company, Arenas Cloud."
+    },
+    "cta": {
+      "headline": "Have a prototype, an agent or a team to set up?",
+      "primary": "Hire me on Upwork",
+      "secondary": "Book a call",
+      "tertiary": "See the code"
+    }
+  },
+  "es": {
+    "name": "Jhonatan Arenas",
+    "headline": "Ayudo a equipos a conectar la IA a sus sistemas y lanzarla.",
+    "role": "Ingeniero freelance: MCP, herramientas de IA, producción",
+    "focus": "Servidores MCP, Claude Code, bots y de prototipo a producción",
+    "place": "Colombia",
+    "languages": "Español (nativo), inglés (B2)",
+    "services": [
+      {
+        "id": "mcp-servers",
+        "title": "Servidores MCP a medida",
+        "tagline": "Conecto Claude y tus agentes con tus APIs y datos.",
+        "proof": [
+          "context-engine-mcp"
+        ],
+        "details": "Herramientas tipadas, autenticación, pruebas y despliegue, para que los agentes lleguen de forma segura a tus APIs, bases de datos y herramientas internas. Respaldo: context-engine-mcp, mi servidor MCP de código abierto para dar contexto de código."
+      },
+      {
+        "id": "ai-coding-harness",
+        "title": "Configuración de Claude Code (local y nube)",
+        "tagline": "Dejo Claude Code listo para tu equipo, local y en la nube.",
+        "proof": [],
+        "details": "CLAUDE.md y AGENTS.md, skills, hooks, subagentes, conexión de MCP, flujo guiado por especificaciones y memoria persistente, versionados en tu repositorio. En la nube: Claude Code en la web / entornos en la nube con scripts de preparación, política de acceso a la red, variables de entorno y secretos, integración con repositorios de GitHub, Claude Code en CI (GitHub Actions) y agentes programados o en segundo plano. Respaldo: mi propia configuración de uso diario, local y en la nube."
+      },
+      {
+        "id": "bots-agents",
+        "title": "Bots y agentes",
+        "tagline": "Construyo bots de triage y soporte que clasifican y responden.",
+        "proof": [
+          "triage-bot"
+        ],
+        "details": "Bots de triage y soporte para Slack, Discord y Microsoft Teams, clasificación con Jev (modelo System One de TypeSafe) y agentes de respuesta sobre AWS Bedrock. Respaldo: discord-triage-agent, un bot de triage de Discord de código abierto."
+      },
+      {
+        "id": "prototype-to-production",
+        "title": "De app hecha con IA a producción",
+        "tagline": "Llevo tu app de Lovable, Cursor o Claude a producción.",
+        "proof": [
+          "fulepu",
+          "hostreach",
+          "subinvoxa",
+          "buitrago"
+        ],
+        "details": "Pruebas, CI/CD, Docker, infraestructura con AWS CDK, manejo ordenado de secretos, observabilidad y revisión de seguridad, y despliegue en AWS o un VPS. Respaldo: HostReach, Subinvoxa y Buitrago en producción, y despliegues en VPS con Docker Compose."
+      }
+    ],
+    "caseStudies": [
+      {
+        "id": "context-engine-mcp",
+        "title": "context-engine-mcp",
+        "role": "Construido de punta a punta",
+        "problem": "Los agentes de código no ven bases de código grandes o multi-repo.",
+        "did": "Construí un servidor MCP que indexa código y lo busca por significado.",
+        "result": "Cualquier cliente MCP obtiene contexto de código relevante bajo demanda.",
+        "stack": [
+          "TypeScript",
+          "MCP SDK",
+          "Qdrant",
+          "fastembed",
+          "tree-sitter",
+          "Docker",
+          "Vitest"
+        ],
+        "status": "open-source",
+        "link": "https://github.com/cybernuki/context-engine-mcp",
+        "details": "Servidor MCP de código abierto con estas herramientas: index_repository, search_codebase, get_file_context, refresh_changed_files, list_repositories y compare_branches. Usa fragmentación por AST con tree-sitter, embeddings locales con fastembed, Qdrant, indexación incremental por hash y búsqueda por rama. Tiene un modo HTTP con token, validación de rutas y despliegue en un VPS con un timer de systemd. Funciona con clientes MCP como Claude, Cursor y VS Code."
+      },
+      {
+        "id": "triage-bot",
+        "title": "discord-triage-agent",
+        "role": "Construido de punta a punta",
+        "problem": "Las preguntas de soporte se acumulan y cada una requiere triage.",
+        "did": "Clasifiqué mensajes con Jev y sumé un agente en Bedrock.",
+        "result": "Las preguntas se ordenan y responden sin que alguien lea cada una.",
+        "stack": [
+          "TypeScript",
+          "Jev",
+          "Amazon Bedrock",
+          "Docker Compose",
+          "CI"
+        ],
+        "status": "open-source",
+        "link": "https://github.com/cybernuki/discord-triage-agent",
+        "details": "Repositorio abierto de muestra: triage con Jev y umbral de confianza, agente de respuestas sobre Bedrock activable con un flag, Docker Compose y CI. Una versión de producción de la misma idea suma RAG sobre un código fuente y corre en un VPS."
+      },
+      {
+        "id": "fulepu",
+        "title": "Fulepu",
+        "role": "Construí la migración a AWS",
+        "problem": "Las apps de una empresa de aprendizaje estaban en servicios dispersos.",
+        "did": "Migré sus apps a AWS con inicio de sesión único en Cognito.",
+        "result": "Sus apps corren en un solo stack de AWS, con un login.",
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "AWS Amplify",
+          "Amazon Cognito",
+          "DynamoDB",
+          "S3",
+          "CloudFront",
+          "AWS CDK",
+          "Lambda",
+          "Amazon SES",
+          "EventBridge"
+        ],
+        "status": "client",
+        "link": "https://fulepu.com/",
+        "details": "Fulepu es una empresa de aprendizaje y desarrollo organizacional. Saqué sus apps web de Firebase, Clerk, Convex y Appwrite y las llevé a AWS: Cognito para el login, DynamoDB para los datos, S3 con CloudFront para los archivos multimedia y Amplify para el hosting, con la infraestructura definida en AWS CDK. Cognito también da inicio de sesión único entre las apps y su portal en WordPress. Sumé correo transaccional con SES y tareas programadas con EventBridge."
+      },
+      {
+        "id": "buitrago",
+        "title": "Buitrago Sánchez Asociados",
+        "role": "Construí la herramienta para el cliente",
+        "problem": "Una firma contable cruzaba facturas de la DIAN a mano.",
+        "did": "Construí una herramienta privada de importación, conciliación bancaria y archivo en Drive.",
+        "result": "La firma tiene facturas importadas, conciliadas y archivadas en una sola herramienta.",
+        "stack": [
+          "Bun",
+          "TypeScript",
+          "Next.js",
+          "SQLite",
+          "APIs de Google"
+        ],
+        "status": "client",
+        "link": "https://buitragosanchezasociados.com/",
+        "details": "El enlace es el sitio público del cliente. La herramienta es interna y privada: importa facturas de la DIAN, las concilia con los extractos bancarios y las archiva en Google Drive."
+      },
+      {
+        "id": "hostreach",
+        "title": "HostReach",
+        "role": "Ingeniero backend",
+        "problem": "Una plataforma de leads necesitaba anuncios al día de varios portales españoles.",
+        "did": "Construí la ingesta con Apify, deduplicación y ClickHouse, y resolví incidentes.",
+        "result": "Anuncios sin duplicados; leads perdidos y etiquetas erróneas corregidos.",
+        "stack": [
+          "NestJS",
+          "TypeScript",
+          "Apify",
+          "ClickHouse",
+          "Jest"
+        ],
+        "status": "live",
+        "link": "https://www.hostreach.io/",
+        "details": "Pipeline de ingesta en el backend para cuatro portales inmobiliarios españoles, conectado por webhooks a ClickHouse. Resolví incidentes de producción como leads perdidos por fallas de envío en WhatsApp y ventas que aparecían como alquileres."
+      },
+      {
+        "id": "subinvoxa",
+        "title": "Subinvoxa",
+        "role": "Co-founder y Tech Lead",
+        "problem": "Las pymes colombianas necesitan facturación electrónica acorde con la DIAN.",
+        "did": "Llevé la app de la idea a producción, con infraestructura y operación.",
+        "result": "Un producto en vivo que emite facturas para varias empresas.",
+        "stack": [
+          "Next.js",
+          "TypeScript",
+          "Convex",
+          "Clerk",
+          "AWS Amplify",
+          "Terraform"
+        ],
+        "status": "live",
+        "link": "https://subinvoxa.com/",
+        "details": "Emite facturas, notas crédito y débito, documentos soporte y nómina electrónica para varias empresas. Cubre producto, backend, infraestructura y operación."
+      }
+    ],
+    "process": [
+      {
+        "step": 1,
+        "title": "Llamada de descubrimiento",
+        "details": "Una llamada corta para entender tu prototipo, agente o equipo."
+      },
+      {
+        "step": 2,
+        "title": "Alcance fijo",
+        "details": "Dejo por escrito qué incluye y qué recibes al final."
+      },
+      {
+        "step": 3,
+        "title": "Avances semanales",
+        "details": "Reportes escritos breves, en lenguaje sencillo."
+      },
+      {
+        "step": 4,
+        "title": "Entrega con documentación",
+        "details": "Código, documentación y una sesión para que tu equipo lo asuma."
+      }
+    ],
+    "background": {
+      "title": "Trayectoria",
+      "text": "Ingeniero backend: NestJS, Python y AWS. Clientes internacionales.",
+      "details": "Mi base es la ingeniería backend con Node.js, NestJS y Python sobre AWS, para clientes internacionales. Tomo proyectos a través de mi empresa, Arenas Cloud."
+    },
+    "cta": {
+      "headline": "¿Tienes un prototipo, un agente o un equipo por configurar?",
+      "primary": "Contrátame en Upwork",
+      "secondary": "Agenda una llamada",
+      "tertiary": "Ver el código"
+    }
+  }
+}
