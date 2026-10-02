@@ -6,6 +6,10 @@ export interface RawService {
   tagline: string;
   proof: string[];
   details: string;
+  /** Optional fixed-price package listing (Upwork Project Catalog). */
+  catalogUrl?: string | null;
+  /** Optional short overview video, served from /public. */
+  video?: { src: string; poster: string; loop?: string } | null;
 }
 export interface RawCase {
   id: string;
@@ -47,7 +51,11 @@ export interface Contact {
   linkedin: string | null;
   booking: string | null;
 }
-export interface SiteContent extends Omit<RawLocale, "caseStudies"> {
+export interface Service extends Omit<RawService, "catalogUrl"> {
+  catalogUrl: string | null;
+}
+export interface SiteContent extends Omit<RawLocale, "caseStudies" | "services"> {
+  services: Service[];
   caseStudies: CaseStudy[];
 }
 
@@ -78,7 +86,11 @@ export function resolveContact(raw: RawContent["contact"]): Contact {
 
 export function selectContent(raw: RawContent, locale: Locale): SiteContent {
   const l = raw[locale];
-  return { ...l, caseStudies: l.caseStudies.map((c) => ({ ...c, link: cleanValue(c.link) })) };
+  return {
+    ...l,
+    services: l.services.map((s) => ({ ...s, catalogUrl: cleanValue(s.catalogUrl) })),
+    caseStudies: l.caseStudies.map((c) => ({ ...c, link: cleanValue(c.link) })),
+  };
 }
 
 export interface RepoInfo {

@@ -2,11 +2,11 @@ import type { ClassCopy } from "@/features/services/domain/classes";
 import type { FaqCopy } from "@/features/codex/domain/faq";
 import type { Locale } from "./locale";
 
-export const SECTION_IDS = ["abilities", "quests", "journey", "codex", "arsenal", "party"] as const;
+export const SECTION_IDS = ["abilities", "package", "quests", "journey", "codex", "arsenal", "party"] as const;
 export type SectionId = (typeof SECTION_IDS)[number];
 
 /** Sections reachable from the menu (the arsenal is a supporting block, not a destination). */
-export const MENU_IDS = ["abilities", "quests", "journey", "codex", "party"] as const;
+export const MENU_IDS = ["abilities", "package", "quests", "journey", "codex", "party"] as const;
 export type MenuId = (typeof MENU_IDS)[number];
 
 export interface SectionCopy {
@@ -35,7 +35,19 @@ export interface Messages {
   hero: { eyebrow: string; lore: string; plain: string; joinCta: string; questsCta: string; menuLabel: string };
   sections: Record<SectionId, SectionCopy>;
   nav: Record<MenuId, { label: string; sub: string }>;
-  abilities: { idealFor: string; gets: string; proof: string; start: string; startFor: string };
+  abilities: { idealFor: string; gets: string; proof: string; start: string; startFor: string; catalog: string; watch: string; videoTitle: string; close: string; videoFallback: string };
+  package: {
+    pitch: string;
+    plus: string;
+    tiers: Array<{ name: string; items: string[] }>;
+    cta: string;
+    watchFull: string;
+    proofLead: string;
+    proofLabels: Record<string, string>;
+    previewLabel: string;
+    play: string;
+    pause: string;
+  };
   classes: Record<string, ClassCopy>;
   quests: { tablist: string; problem: string; did: string; outcome: string; stack: string; link: string; soon: string; stars: string; openSource: string; clientWork: string };
   journey: { steps: [string, string, string, string]; map: string };
@@ -79,6 +91,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     },
     sections: {
       abilities: { label: "Abilities", sub: "What I build for you", kicker: "Chapter I · class select" },
+      package: { label: "Featured package", sub: "Deploy your AI-built app to production", kicker: "Featured · fixed-price package" },
       quests: { label: "Quests", sub: "Shipped work and open source", kicker: "Chapter II · quest log" },
       journey: { label: "The Journey", sub: "How we work together", kicker: "Chapter III · the road" },
       codex: { label: "Codex", sub: "Questions, answered", kicker: "Chapter IV · lore" },
@@ -87,12 +100,29 @@ export const MESSAGES: Record<Locale, Messages> = {
     },
     nav: {
       abilities: { label: "Abilities", sub: "What I build for you" },
+      package: { label: "Package", sub: "Deploy your AI-built app" },
       quests: { label: "Quests", sub: "Shipped work and open source" },
       journey: { label: "The Journey", sub: "How we work together" },
       codex: { label: "Codex", sub: "Questions, answered" },
       party: { label: "Join the Party", sub: "Hire me or book a call" },
     },
-    abilities: { idealFor: "Ideal for", gets: "What you get", proof: "Proof", start: "Start this quest", startFor: "Start this quest:" },
+    abilities: { idealFor: "Ideal for", gets: "What you get", proof: "Proof", start: "Start this quest", startFor: "Start this quest:", catalog: "Buy as a fixed-price package", watch: "Watch the 40-second overview", videoTitle: "Overview: Vibe-coded app to production", close: "Close", videoFallback: "Your browser cannot play this video." },
+    package: {
+      pitch: "A fixed-scope, fixed-price package to take an app built with Lovable, Cursor or Claude live on AWS or a VPS, with the safety net production needs.",
+      plus: "plus",
+      tiers: [
+        { name: "Starter", items: ["secure deploy", "domain", "HTTPS"] },
+        { name: "Standard", items: ["CI/CD", "tests", "monitoring"] },
+        { name: "Advanced", items: ["infrastructure as code", "backups", "staging"] },
+      ],
+      cta: "See the package on Upwork",
+      watchFull: "Watch the full video (40 s)",
+      proofLead: "Proof:",
+      proofLabels: { fulepu: "Fulepu AWS migration", subinvoxa: "Subinvoxa" },
+      previewLabel: "Preview of the package video",
+      play: "Play preview",
+      pause: "Pause preview",
+    },
     classes: {
       "mcp-servers": {
         name: "The Conduit",
@@ -178,6 +208,7 @@ export const MESSAGES: Record<Locale, Messages> = {
     },
     sections: {
       abilities: { label: "Habilidades", sub: "Lo que construyo para ti", kicker: "Capítulo I · elige tu clase" },
+      package: { label: "Paquete destacado", sub: "Lleva tu app hecha con IA a producción", kicker: "Destacado · paquete a precio fijo" },
       quests: { label: "Misiones", sub: "Trabajo entregado y código abierto", kicker: "Capítulo II · diario de misiones" },
       journey: { label: "El viaje", sub: "Cómo trabajamos juntos", kicker: "Capítulo III · el camino" },
       codex: { label: "Códice", sub: "Preguntas, respondidas", kicker: "Capítulo IV · crónicas" },
@@ -186,12 +217,29 @@ export const MESSAGES: Record<Locale, Messages> = {
     },
     nav: {
       abilities: { label: "Habilidades", sub: "Lo que construyo para ti" },
+      package: { label: "Paquete", sub: "Lleva tu app a producción" },
       quests: { label: "Misiones", sub: "Trabajo entregado y código abierto" },
       journey: { label: "El viaje", sub: "Cómo trabajamos juntos" },
       codex: { label: "Códice", sub: "Preguntas, respondidas" },
       party: { label: "Únete al grupo", sub: "Contrátame o agenda una llamada" },
     },
-    abilities: { idealFor: "Ideal para", gets: "Qué recibes", proof: "Prueba", start: "Empezar esta misión", startFor: "Empezar esta misión:" },
+    abilities: { idealFor: "Ideal para", gets: "Qué recibes", proof: "Prueba", start: "Empezar esta misión", startFor: "Empezar esta misión:", catalog: "Contrátalo como paquete a precio fijo", watch: "Ver el resumen de 40 segundos", videoTitle: "Resumen: De app hecha con IA a producción", close: "Cerrar", videoFallback: "Tu navegador no puede reproducir este video." },
+    package: {
+      pitch: "Un paquete de alcance y precio fijos para llevar una app hecha con Lovable, Cursor o Claude a AWS o a un VPS, con la red de seguridad que exige producción.",
+      plus: "más",
+      tiers: [
+        { name: "Inicial", items: ["despliegue seguro", "dominio", "HTTPS"] },
+        { name: "Estándar", items: ["CI/CD", "pruebas", "monitoreo"] },
+        { name: "Avanzado", items: ["infraestructura como código", "respaldos", "staging"] },
+      ],
+      cta: "Ver el paquete en Upwork",
+      watchFull: "Ver el video completo (40 s)",
+      proofLead: "Respaldo:",
+      proofLabels: { fulepu: "Migración de Fulepu a AWS", subinvoxa: "Subinvoxa" },
+      previewLabel: "Vista previa del video del paquete",
+      play: "Reproducir vista previa",
+      pause: "Pausar vista previa",
+    },
     classes: {
       "mcp-servers": {
         name: "El Conducto",

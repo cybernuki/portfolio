@@ -5,6 +5,7 @@ interface ServiceInput {
   title: string;
   tagline: string;
   details: string;
+  catalogUrl?: string | null;
 }
 
 export interface JsonLdInput {
@@ -45,7 +46,7 @@ export function buildJsonLd(input: JsonLdInput): { "@context": string; "@graph":
       description: `${s.tagline} ${s.details}`,
       provider: { "@id": personId },
       areaServed: "Worldwide",
-      offers: { "@type": "Offer", url: `${pageUrl}#party`, availability: "https://schema.org/InStock" },
+      offers: { "@type": "Offer", url: s.catalogUrl || `${pageUrl}#party`, availability: "https://schema.org/InStock" },
     })),
   ];
   return { "@context": "https://schema.org", "@graph": graph };

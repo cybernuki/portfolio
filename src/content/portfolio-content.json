@@ -48,7 +48,13 @@
           "subinvoxa",
           "buitrago"
         ],
-        "details": "Tests, CI/CD, Docker, AWS CDK infrastructure, secrets hygiene, observability and a security pass, then deployment to AWS or a VPS. Proof: HostReach, Subinvoxa and Buitrago in production, and VPS deployments with Docker Compose."
+        "details": "Tests, CI/CD, Docker, AWS CDK infrastructure, secrets hygiene, observability and a security pass, then deployment to AWS or a VPS. Proof: HostReach, Subinvoxa and Buitrago in production, and VPS deployments with Docker Compose.",
+        "catalogUrl": "https://www.upwork.com/services/product/development-it-deploy-your-ai-built-app-to-production-2106139410396282667",
+        "video": {
+          "src": "/media/deploy-ai-app.mp4",
+          "poster": "/media/deploy-ai-app-poster.png",
+          "loop": "/media/deploy-ai-app-loop.mp4"
+        }
       }
     ],
     "caseStudies": [
@@ -247,7 +253,13 @@
           "subinvoxa",
           "buitrago"
         ],
-        "details": "Pruebas, CI/CD, Docker, infraestructura con AWS CDK, manejo ordenado de secretos, observabilidad y revisión de seguridad, y despliegue en AWS o un VPS. Respaldo: HostReach, Subinvoxa y Buitrago en producción, y despliegues en VPS con Docker Compose."
+        "details": "Pruebas, CI/CD, Docker, infraestructura con AWS CDK, manejo ordenado de secretos, observabilidad y revisión de seguridad, y despliegue en AWS o un VPS. Respaldo: HostReach, Subinvoxa y Buitrago en producción, y despliegues en VPS con Docker Compose.",
+        "catalogUrl": "https://www.upwork.com/services/product/development-it-deploy-your-ai-built-app-to-production-2106139410396282667",
+        "video": {
+          "src": "/media/deploy-ai-app.mp4",
+          "poster": "/media/deploy-ai-app-poster.png",
+          "loop": "/media/deploy-ai-app-loop.mp4"
+        }
       }
     ],
     "caseStudies": [

@@ -3,6 +3,7 @@ import type { Messages } from "@/features/i18n/domain/messages";
 import { ProofLink, StartQuestLink } from "@/features/party/ui/QuestLinks";
 import { Corners, Sigil } from "@/features/theme/ui/ornaments";
 import { SectionHead } from "@/features/theme/ui/SectionHead";
+import { OverviewVideo } from "./OverviewVideo";
 import { isServiceId, SERVICE_SIGILS } from "../domain/classes";
 
 /** The four classes. Facts live in server HTML; only the two links are client islands. */
@@ -46,7 +47,17 @@ export function Abilities({ content, discs, t }: { content: SiteContent; discs: 
                     {proof.length ? proof.map((id) => <ProofLink key={id} questId={id} label={questTitle[id] ?? id} />) : c.ownProof ? <span>{c.ownProof}</span> : null}
                   </div>
                 </div>
-                <StartQuestLink serviceId={s.id} label={t.abilities.start} ariaLabel={`${t.abilities.startFor} ${s.title}`} />
+                <div className="class-actions">
+                  <StartQuestLink serviceId={s.id} label={t.abilities.start} ariaLabel={`${t.abilities.startFor} ${s.title}`} />
+                  {s.catalogUrl ? (
+                    <a className="btn secondary" href={s.catalogUrl} target="_blank" rel="noopener" data-testid="catalog-link">
+                      {t.abilities.catalog}
+                    </a>
+                  ) : null}
+                  {s.video ? (
+                    <OverviewVideo src={s.video.src} poster={s.video.poster} label={t.abilities.watch} title={t.abilities.videoTitle} closeLabel={t.abilities.close} fallback={t.abilities.videoFallback} />
+                  ) : null}
+                </div>
               </article>
             </li>
           );

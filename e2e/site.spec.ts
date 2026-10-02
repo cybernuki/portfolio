@@ -3,7 +3,7 @@ import { mkdirSync } from "node:fs";
 import { findForbidden } from "../src/features/content/domain/forbidden";
 
 const TIERS = ["full", "calm", "static"] as const;
-const SECTIONS = ["abilities", "quests", "journey", "codex", "arsenal", "party"] as const;
+const SECTIONS = ["abilities", "package", "quests", "journey", "codex", "arsenal", "party"] as const;
 
 const isPhone = (info: TestInfo) => info.project.name.startsWith("phone");
 
@@ -149,7 +149,7 @@ for (const tier of TIERS) {
       await expect(page.getByTestId("cta-booking")).toContainText("Coming soon");
       await expect(page.getByTestId("cta-github")).toHaveAttribute("href", /github\.com\/cybernuki/);
       await expect(page.getByTestId("cta-linkedin")).toHaveAttribute("href", /linkedin\.com/);
-      await expect(page.locator(".btn.primary")).toHaveCount(3); // hero, hud, party: one per screen
+      await expect(page.locator(".btn.primary")).toHaveCount(4); // hero, hud, featured package, party: at most one per screen (package and party are far apart)
     });
   });
 }

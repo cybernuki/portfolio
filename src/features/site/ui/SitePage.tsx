@@ -10,6 +10,7 @@ import { MotionProvider } from "@/features/motion/ui/MotionProvider";
 import { MotionRuntime } from "@/features/motion/ui/MotionRuntime";
 import { SectionSweep } from "@/features/motion/ui/SectionSweep";
 import { GuildConfig } from "@/features/party/ui/GuildConfig";
+import { PackageSection } from "@/features/package/ui/PackageSection";
 import { Party } from "@/features/party/ui/Party";
 import { Quests } from "@/features/quests/ui/Quests";
 import { Abilities } from "@/features/services/ui/Abilities";
@@ -38,6 +39,7 @@ export function SitePage({ locale, content, contact, discs }: SitePageProps) {
         <Hero name={content.name} copy={t.hero} nav={t.nav} />
         <div className="wrap">
           <Abilities content={content} discs={discs} t={t} />
+          <PackageSection content={content} discs={discs} t={t} />
           <Quests discs={discs} t={t} />
           <Journey content={content} t={t} />
           <Codex content={content} contact={contact} t={t} />

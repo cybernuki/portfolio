@@ -28,4 +28,12 @@ describe("buildJsonLd", () => {
     expect(json).not.toMatch(/email|@gmail/i);
     expect(json).not.toMatch(/"sameAs":\[\]/);
   });
+  it("uses the catalog URL as the Offer url only for services that have one", () => {
+    const g = buildJsonLd({
+      ...input,
+      services: [...input.services, { id: "prototype-to-production", title: "p", tagline: "t", details: "d", catalogUrl: "https://www.upwork.com/services/product/abc" }],
+    })["@graph"].filter((n) => n["@type"] === "Service");
+    expect((g[0]?.offers as { url: string }).url).toBe("https://x.dev/en#party");
+    expect((g[1]?.offers as { url: string }).url).toBe("https://www.upwork.com/services/product/abc");
+  });
 });

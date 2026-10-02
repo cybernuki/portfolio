@@ -640,6 +640,157 @@ section[tabindex="-1"]:focus,
   margin-top: auto;
   width: 100%;
 }
+.class .class-actions {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.class .class-actions .btn {
+  margin-top: 0;
+}
+.textbtn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  font-family: var(--font-hud);
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  color: var(--gold);
+  text-decoration: underline;
+  text-underline-offset: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+.textbtn:hover {
+  filter: brightness(1.15);
+}
+dialog.overview {
+  width: min(960px, calc(100vw - 32px));
+  max-height: calc(100dvh - 32px);
+  margin: auto;
+  padding: 16px;
+  color: var(--bone, inherit);
+  background: var(--void, #0b0d0f);
+  border: 1px solid var(--gold-deep);
+}
+dialog.overview::backdrop {
+  background: rgb(0 0 0 / 0.78);
+}
+dialog.overview .overview-title {
+  margin: 0 0 12px;
+  font-family: var(--font-title);
+  color: var(--gold);
+  padding-right: 96px;
+  font-size: 1rem;
+}
+dialog.overview video {
+  display: block;
+  width: 100%;
+  max-height: calc(100dvh - 130px);
+  background: #000;
+}
+dialog.overview .overview-close {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 14px;
+  font-family: var(--font-hud);
+  font-size: 13px;
+  color: var(--gold);
+  border: 1px solid var(--gold-deep);
+  cursor: pointer;
+}
+
+/* featured package */
+.package {
+  display: grid;
+  grid-template-columns: minmax(0, 1.1fr) minmax(0, 0.9fr);
+  gap: 24px;
+  align-items: center;
+}
+.package-video {
+  position: relative;
+  padding: 10px;
+}
+.package-media-wrap {
+  position: relative;
+}
+.package-media {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  background: #000;
+  object-fit: cover;
+}
+.package-play {
+  position: absolute;
+  left: 12px;
+  bottom: 12px;
+  min-height: 44px;
+  min-width: 44px;
+  padding: 8px 16px;
+  font-family: var(--font-hud);
+  font-size: 13px;
+  color: var(--gold);
+  background: rgb(10 10 11 / 0.85);
+  border: 1px solid var(--gold-deep);
+  cursor: pointer;
+}
+.package-pitch {
+  margin: 0 0 16px;
+}
+.package-tiers {
+  list-style: none;
+  margin: 0 0 20px;
+  padding: 0;
+  display: grid;
+  gap: 8px;
+}
+.package-tiers li {
+  display: grid;
+  grid-template-columns: 7.5rem minmax(0, 1fr);
+  gap: 12px;
+  padding: 10px 12px;
+  border: 1px solid var(--iron);
+}
+.package-tiers strong {
+  font-family: var(--font-title);
+  color: var(--gold);
+}
+.package-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.package-proof {
+  margin: 14px 0 0;
+  font-family: var(--font-hud);
+  font-size: 13px;
+  color: var(--ash);
+}
+.package-proof a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+@media (max-width: 899px) {
+  .package {
+    grid-template-columns: minmax(0, 1fr);
+  }
+  .package-tiers li {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 2px;
+  }
+  .package-actions .btn {
+    width: 100%;
+  }
+}
 
 /* quest log */
 .quests {

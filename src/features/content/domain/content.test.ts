@@ -89,3 +89,19 @@ describe("mergeRepos", () => {
     expect(discs.at(-1)).toMatchObject({ id: "context-engine-mcp", kind: "repo", link: "https://github.com/cybernuki/context-engine-mcp", stars: 1, stack: ["TypeScript"] });
   });
 });
+
+describe("service catalogUrl", () => {
+  const withCatalog = (catalogUrl: unknown): RawContent => ({
+    ...raw,
+    en: { ...raw.en, services: [{ ...raw.en.services[0]!, catalogUrl: catalogUrl as string }, { id: "plain", title: "p", tagline: "g", proof: [], details: "d" }] },
+  });
+  it("keeps a real catalogUrl and leaves services without one as null", () => {
+    const s = selectContent(withCatalog("https://www.upwork.com/services/product/x"), "en").services;
+    expect(s[0]?.catalogUrl).toBe("https://www.upwork.com/services/product/x");
+    expect(s[1]?.catalogUrl ?? null).toBeNull();
+  });
+  it("turns TODO and blank catalogUrl values into null", () => {
+    expect(selectContent(withCatalog("TODO: later"), "en").services[0]?.catalogUrl).toBeNull();
+    expect(selectContent(withCatalog("  "), "en").services[0]?.catalogUrl).toBeNull();
+  });
+});

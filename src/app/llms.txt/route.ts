@@ -22,7 +22,7 @@ export async function GET() {
         `${content.headline} ${content.role}. ${content.place}.`,
         "",
         "### Services",
-        ...content.services.map((s) => `- ${s.title}: ${s.tagline}`),
+        ...content.services.map((s) => `- ${s.title}: ${s.tagline}${s.catalogUrl ? ` Fixed-price package: ${s.catalogUrl}` : ""}`),
         "",
         "### Proof",
         ...orderQuests(discs).map((d) => `- ${d.title}${d.link ? ` (${d.link})` : ""}`),
