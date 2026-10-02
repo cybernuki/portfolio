@@ -1,6 +1,6 @@
 import type { Contact, SiteContent } from "@/features/content/domain/content";
 import type { Messages } from "@/features/i18n/domain/messages";
-import { Corners } from "@/features/theme/ui/ornaments";
+import { Corners, Divider } from "@/features/theme/ui/ornaments";
 import { PartyPanel } from "./PartyPanel";
 
 /** Contact: the lore line, the chosen quest and the CTAs. Missing destinations render as "coming soon". */
@@ -15,16 +15,16 @@ export function Party({ content, contact, t }: { content: SiteContent; contact: 
   return (
     <section id="party" className="frame party" aria-labelledby="party-h" tabIndex={-1} data-reveal>
       <Corners />
-      <span className="hud-text">{t.sections.party.kicker}</span>
       <h2 id="party-h" className="title">
         <span>{t.sections.party.label}</span>
         <span className="h-sub">{t.sections.party.sub}</span>
       </h2>
+      <Divider label={t.sections.party.kicker} centered />
       <p className="lore">
         {content.cta.headline} {t.party.loreTail}
       </p>
       <PartyPanel services={services} contact={contact} labels={labels} copy={t.party} />
-      <span className="hud-text">
+      <span className="meta">
         {t.party.languages}: {content.languages}
       </span>
     </section>

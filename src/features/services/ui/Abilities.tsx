@@ -20,11 +20,13 @@ export function Abilities({ content, discs, t }: { content: SiteContent; discs: 
             <li key={s.id} data-reveal>
               <article className="frame class" id={`service-${s.id}`} data-testid="class-card" aria-labelledby={`class-${s.id}`}>
                 <Corners />
-                <Sigil kind={isServiceId(s.id) ? SERVICE_SIGILS[s.id] : "smith"} />
-                <h3 id={`class-${s.id}`}>
-                  {c.name}
-                  <span className="plain-name">{s.title}</span>
-                </h3>
+                <div className="class-head">
+                  <Sigil kind={isServiceId(s.id) ? SERVICE_SIGILS[s.id] : "smith"} />
+                  <h3 id={`class-${s.id}`}>
+                    {c.name}
+                    <span className="plain-name">{s.title}</span>
+                  </h3>
+                </div>
                 <p className="what">{s.tagline}</p>
                 <div className="block">
                   <h4>{t.abilities.idealFor}</h4>

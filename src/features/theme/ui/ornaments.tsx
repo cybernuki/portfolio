@@ -30,10 +30,20 @@ export function Corners() {
   );
 }
 
-export function Divider() {
+/** Hairline with a diamond. With a label it becomes a chapter plate that sits under the heading. */
+export function Divider({ label, centered = false }: { label?: string; centered?: boolean }) {
+  if (!label) {
+    return (
+      <div className="divider" aria-hidden="true">
+        <i />
+      </div>
+    );
+  }
   return (
-    <div className="divider" aria-hidden="true">
-      <span />
+    <div className={centered ? "divider" : "divider start"}>
+      <i aria-hidden="true" />
+      <p className="meta plate">{label}</p>
+      {centered ? <i aria-hidden="true" /> : null}
     </div>
   );
 }

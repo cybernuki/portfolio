@@ -14,7 +14,6 @@ export function Hero({ name, copy, nav }: { name: string; copy: Messages["hero"]
       <EmbersLayer />
       <div className="screen-grid">
         <div className="mark">
-          <span className="hud-text">{copy.eyebrow}</span>
           <h1 id="hero-h" className="title">
             {first}
             <br />
@@ -30,6 +29,7 @@ export function Hero({ name, copy, nav }: { name: string; copy: Messages["hero"]
               {copy.questsCta}
             </AnchorLink>
           </div>
+          <p className="meta where">{copy.eyebrow}</p>
         </div>
         <nav aria-label={copy.menuLabel}>
           <ul className="menu">

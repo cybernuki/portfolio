@@ -6,14 +6,13 @@ export function SectionHead({ id, copy, intro }: { id: string; copy: SectionCopy
   return (
     <>
       <header className="chapter-head" data-reveal>
-        <span className="hud-text">{copy.kicker}</span>
         <h2 id={`${id}-h`} className="title">
           <span>{copy.label}</span>
           <span className="h-sub">{copy.sub}</span>
         </h2>
         {intro ? <p>{intro}</p> : null}
       </header>
-      <Divider />
+      <Divider label={copy.kicker} />
     </>
   );
 }

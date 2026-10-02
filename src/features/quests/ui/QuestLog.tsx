@@ -98,12 +98,12 @@ export function QuestLog({ quests, copy }: { quests: QuestView[]; copy: QuestLog
           data-quest={q.id}
         >
           <Corners />
-          <span className="hud-text">
+          <span className="meta">
             {q.groupLabel}
             {q.stars > 0 ? ` · ${q.stars} ${copy.stars}` : ""}
           </span>
           <h3 className="title">{q.title}</h3>
-          {q.role ? <p className="role hud-text">{q.role}</p> : null}
+          {q.role ? <p className="role meta">{q.role}</p> : null}
           {q.problem ? (
             <dl>
               <div>
