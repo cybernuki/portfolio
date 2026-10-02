@@ -21,7 +21,7 @@ Vercel works with the defaults: framework Next.js, install `pnpm install`, build
 
 | Variable | Required | Purpose |
 |---|---|---|
-| `NEXT_PUBLIC_SITE_URL` | yes | Public origin (for example `https://your-domain.com`) for canonical links, hreflang, sitemap, OG images and JSON-LD. Without it the site falls back to `http://localhost:3100`. |
+| `NEXT_PUBLIC_SITE_URL` | no | Public origin (for example `https://your-domain.com`) for canonical links, hreflang, sitemap, OG images and JSON-LD. Defaults to `https://portfolio-jhonatan-orpin.vercel.app`; set it only to override (for example, a custom domain). |
 | `GITHUB_TOKEN` | no | Raises the GitHub API rate limit for the open-source cards. Without it, a failed or rate-limited request falls back to the case-study JSON. |
 | `NEXT_PUBLIC_ENABLE_AUDIO` | no | `true` brings back the music and sound-effects controls. Off by default. |
 
